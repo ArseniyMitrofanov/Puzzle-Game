@@ -28,10 +28,11 @@
 {
     _boardSize = size;
     self.dimension = dimension;
+    int pieceCount = (int)pow(dimension, 2);
     self.moves = 0;
     UIImage *newImage = [self scaleImage:image toSize:size];
     NSMutableArray *puzzle = [SBPuzzleinator generatePuzzle:newImage withDimension:dimension withFullSize:size];
-    _emptyPiece = [puzzle objectAtIndex:(dimension-1)];
+    _emptyPiece = [puzzle objectAtIndex:(pieceCount-1)];
     self.puzzle = [SBPuzzleinator fisherYates:puzzle withDimension:dimension withPieceSize:(size/dimension)];
     self.emptyIndex = [self findEmptyPiece];
     self.pieceSize = _boardSize / dimension;
@@ -57,7 +58,7 @@
 - (void)moveLeft
 {
     _transform = [[SBTransformBoard alloc] initWithEngine:self withXDir:-1 withYDir:0];
-    if(_emptyIndex % _dimension == (_dimension-1)) return;
+    if(_emptyIndex % _dimension == (-1)) return;
     self.puzzle = [_transform transform];
     self.emptyIndex = [self findEmptyPiece];
 }

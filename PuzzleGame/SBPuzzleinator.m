@@ -24,24 +24,27 @@
     double pieceSize = fullSize / dimension;
     NSMutableArray *puzzle = [[NSMutableArray alloc] initWithCapacity:pieceCount];
     for(int i = 0; i < pieceCount; i++) {
+        //0,1,2
+        //3,4,5
+        //6,7,8
         double x = i % dimension;
         double y = i / dimension;
         UIImage *subset = [SBPuzzleinator createPiece:image fromX:x*pieceSize fromY:y*pieceSize withSize:pieceSize];
         SBPuzzlePiece *piece = [[SBPuzzlePiece alloc] initWithPicture:subset withDestX:x*pieceSize withDestY:y*pieceSize];
         [puzzle addObject:piece];
     }
-    SBPuzzlePiece *emptyPiece = [[SBPuzzlePiece alloc] initWithPicture:[[UIImage alloc] init] withDestX:pieceSize*(dimension-1) withDestY:0];
-    [puzzle replaceObjectAtIndex:(dimension-1) withObject:emptyPiece];
+    SBPuzzlePiece *emptyPiece = [[SBPuzzlePiece alloc] initWithPicture:[[UIImage alloc] init] withDestX:pieceSize*(dimension-1) withDestY:pieceSize*(dimension-1)];
+    [puzzle replaceObjectAtIndex:(pieceCount-1) withObject:emptyPiece];
     return puzzle;
 }
 
 + (NSMutableArray *)fisherYates:(NSMutableArray *)array withDimension:(int)dimension withPieceSize:(double)pieceSize
 {
     int max = (int)[array count];
-    srand((unsigned int)time(NULL));
+//    srand((unsigned int)time(NULL));
     NSMutableArray *puzzle = [[NSMutableArray alloc] init];
     for(int i = 0; i < max; i++) {
-        int a = rand() % (max-i);
+        int a = arc4random() % (max-i);
         double x = (i % dimension) * pieceSize;
         double y = (i / dimension) * pieceSize;
         SBPuzzlePiece *piece = [array objectAtIndex:a];

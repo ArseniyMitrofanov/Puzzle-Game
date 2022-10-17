@@ -1,11 +1,3 @@
-//
-//  ViewController.m
-//  PuzzleGame
-//
-//  Created by Samuel Bowman on 6/24/17.
-//  Copyright © 2017 Samuel Bowman. All rights reserved.
-//
-
 #import "ViewController.h"
 #import "SBPuzzleGameEngine.h"
 #import "SBPuzzlePiece.h"
@@ -60,7 +52,7 @@
     if([[self.gameBoard backgroundColor] isEqual:[UIColor greenColor]]) {
         [self.gameBoard setBackgroundColor:[UIColor lightGrayColor]];
     }
-    UIImage *sample = [UIImage imageNamed:@"notepad_icon_edited.png"];
+    UIImage *sample = [UIImage imageNamed:@"notepad_icon_edited.jpg"];
     self.engine = [[SBPuzzleGameEngine alloc] initEngine:sample withDimension:(int)[self.difficultySelector value] withSize:self.gameBoard.bounds.size.height];
     //height and width are always the same due to the board being square
     [self populateBoard];
@@ -99,11 +91,16 @@
         [self.gameBoard setBackgroundColor:[UIColor greenColor]];
     }
 }
+- (IBAction)siuu:(id)sender {
+    [self.gameBoard.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    [self.gameBoard setBackgroundColor:[UIColor greenColor]];
+    }
 
-- (IBAction)setDifficultySetterVisibility:(id)sender {
-    [self.difficultyLabel setHidden:![self.difficultyLabel isHidden]];
-    [self.difficultySelector setHidden:![self.difficultySelector isHidden]];
-    [self.difficultyNotifier setHidden:![self.difficultyNotifier isHidden]];
-}
+
+//- (IBAction)setDifficultySetterVisibility:(id)sender {
+//    [self.difficultyLabel setHidden:![self.difficultyLabel isHidden]];
+//    [self.difficultySelector setHidden:![self.difficultySelector isHidden]];
+//    [self.difficultyNotifier setHidden:![self.difficultyNotifier isHidden]];
+//}
 
 @end

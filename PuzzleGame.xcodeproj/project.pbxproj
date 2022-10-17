@@ -19,7 +19,7 @@
 		7EE83D261EFF467F00A7F126 /* SBPuzzleinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D231EFF467F00A7F126 /* SBPuzzleinator.m */; };
 		7EE83D271EFF467F00A7F126 /* SBPuzzlePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D251EFF467F00A7F126 /* SBPuzzlePiece.m */; };
 		7EE83D2A1EFF47C000A7F126 /* SBPuzzleGameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D291EFF47C000A7F126 /* SBPuzzleGameEngine.m */; };
-		7EE83D301EFF567A00A7F126 /* notepad_icon_edited.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE83D2F1EFF567A00A7F126 /* notepad_icon_edited.png */; };
+		7EE83D301EFF567A00A7F126 /* notepad_icon_edited.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EE83D2F1EFF567A00A7F126 /* notepad_icon_edited.jpg */; };
 		7EE909F8217CFC8E0092B88D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE909F7217CFC8E0092B88D /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +58,7 @@
 		7EE83D251EFF467F00A7F126 /* SBPuzzlePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPuzzlePiece.m; sourceTree = "<group>"; };
 		7EE83D281EFF47C000A7F126 /* SBPuzzleGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPuzzleGameEngine.h; sourceTree = "<group>"; };
 		7EE83D291EFF47C000A7F126 /* SBPuzzleGameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPuzzleGameEngine.m; sourceTree = "<group>"; };
-		7EE83D2F1EFF567A00A7F126 /* notepad_icon_edited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notepad_icon_edited.png; sourceTree = "<group>"; };
+		7EE83D2F1EFF567A00A7F126 /* notepad_icon_edited.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = notepad_icon_edited.jpg; sourceTree = "<group>"; };
 		7EE909F7217CFC8E0092B88D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,7 +126,7 @@
 				7EE83D251EFF467F00A7F126 /* SBPuzzlePiece.m */,
 				7EE83D061EFF341000A7F126 /* Main.storyboard */,
 				7E32FA461F009D1200E7F6CE /* notepad_icon_rounded.png */,
-				7EE83D2F1EFF567A00A7F126 /* notepad_icon_edited.png */,
+				7EE83D2F1EFF567A00A7F126 /* notepad_icon_edited.jpg */,
 				7EE83D091EFF341000A7F126 /* Assets.xcassets */,
 				7EE83D0B1EFF341000A7F126 /* LaunchScreen.storyboard */,
 				7EE83D0E1EFF341000A7F126 /* Info.plist */,
@@ -201,7 +201,7 @@
 				TargetAttributes = {
 					7EE83CF91EFF341000A7F126 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = JAEK25CLT3;
+						DevelopmentTeam = A87RVX8TPK;
 						ProvisioningStyle = Automatic;
 					};
 					7EE83D121EFF341000A7F126 = {
@@ -217,6 +217,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -239,7 +240,7 @@
 				7EE83D0D1EFF341000A7F126 /* LaunchScreen.storyboard in Resources */,
 				7EE83D0A1EFF341000A7F126 /* Assets.xcassets in Resources */,
 				7E32FA471F009D1200E7F6CE /* notepad_icon_rounded.png in Resources */,
-				7EE83D301EFF567A00A7F126 /* notepad_icon_edited.png in Resources */,
+				7EE83D301EFF567A00A7F126 /* notepad_icon_edited.jpg in Resources */,
 				7EE83D081EFF341000A7F126 /* Main.storyboard in Resources */,
 				7EE909F8217CFC8E0092B88D /* Default-568h@2x.png in Resources */,
 			);
@@ -419,10 +420,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JAEK25CLT3;
+				DEVELOPMENT_TEAM = A87RVX8TPK;
 				INFOPLIST_FILE = "$(SRCROOT)/PuzzleGame/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.samuel.PuzzlePets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arseniy.PuzzleGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -432,10 +433,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JAEK25CLT3;
+				DEVELOPMENT_TEAM = A87RVX8TPK;
 				INFOPLIST_FILE = "$(SRCROOT)/PuzzleGame/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.samuel.PuzzlePets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arseniy.PuzzleGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
