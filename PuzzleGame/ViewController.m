@@ -27,7 +27,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    //[self.winLabel setHidden:YES];
     [super viewDidAppear:animated];
     [self becomeFirstResponder];
 }
@@ -46,15 +45,11 @@
 }
 
 - (IBAction)startGame:(id)sender {
-    /*if(![self.winLabel isHidden]) {
-        [self.winLabel setHidden:YES];
-    }*/
     if([[self.gameBoard backgroundColor] isEqual:[UIColor greenColor]]) {
         [self.gameBoard setBackgroundColor:[UIColor lightGrayColor]];
     }
     UIImage *sample = [UIImage imageNamed:@"notepad_icon_edited.jpg"];
     self.engine = [[SBPuzzleGameEngine alloc] initEngine:sample withDimension:(int)[self.difficultySelector value] withSize:self.gameBoard.bounds.size.height];
-    //height and width are always the same due to the board being square
     [self populateBoard];
     [self.movesCounter setText:@"0"];
 }
@@ -87,20 +82,10 @@
     }
     [self.movesCounter setText:[NSString stringWithFormat:@"%d",self.engine.moves]];
     if([self.engine isVictorious]) {
+       
         [self.gameBoard.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
         [self.gameBoard setBackgroundColor:[UIColor greenColor]];
     }
 }
-- (IBAction)siuu:(id)sender {
-    [self.gameBoard.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
-    [self.gameBoard setBackgroundColor:[UIColor greenColor]];
-    }
-
-
-//- (IBAction)setDifficultySetterVisibility:(id)sender {
-//    [self.difficultyLabel setHidden:![self.difficultyLabel isHidden]];
-//    [self.difficultySelector setHidden:![self.difficultySelector isHidden]];
-//    [self.difficultyNotifier setHidden:![self.difficultyNotifier isHidden]];
-//}
 
 @end

@@ -16,7 +16,6 @@
 @end
 
 @implementation SBPuzzleinator
-
 + (NSMutableArray *)generatePuzzle:(UIImage *)image withDimension:(int)dimension
                       withFullSize:(double)fullSize
 {
@@ -24,9 +23,6 @@
     double pieceSize = fullSize / dimension;
     NSMutableArray *puzzle = [[NSMutableArray alloc] initWithCapacity:pieceCount];
     for(int i = 0; i < pieceCount; i++) {
-        //0,1,2
-        //3,4,5
-        //6,7,8
         double x = i % dimension;
         double y = i / dimension;
         UIImage *subset = [SBPuzzleinator createPiece:image fromX:x*pieceSize fromY:y*pieceSize withSize:pieceSize];
@@ -40,19 +36,44 @@
 
 + (NSMutableArray *)fisherYates:(NSMutableArray *)array withDimension:(int)dimension withPieceSize:(double)pieceSize
 {
+    int lineWithEmptyPiece = 0;
+    bool isDefective = true;
+    int pairs = 0;
     int max = (int)[array count];
-//    srand((unsigned int)time(NULL));
+    int pieceCount = (int)pow(dimension, 2);
     NSMutableArray *puzzle = [[NSMutableArray alloc] init];
-    for(int i = 0; i < max; i++) {
-        int a = arc4random() % (max-i);
-        double x = (i % dimension) * pieceSize;
-        double y = (i / dimension) * pieceSize;
-        SBPuzzlePiece *piece = [array objectAtIndex:a];
-        [piece setXCurr:x];
-        [piece setYCurr:y];
-        [puzzle addObject:piece];
-        [array removeObject:piece];
-    }
+//    do {
+        for(int i = 0; i < max; i++) {
+            int a = arc4random() % (max-i);
+            double x = (i % dimension) * pieceSize;
+            double y = (i / dimension) * pieceSize;
+            SBPuzzlePiece *piece = [array objectAtIndex:a];
+            [piece setXCurr:x];
+            [piece setYCurr:y];
+            [puzzle addObject:piece];
+            [array removeObject:piece];
+        }
+        for(int i = 0; i < pieceCount; i++) {
+            SBPuzzlePiece *currPiece = puzzle[i];
+            if ((currPiece.xDest == pieceSize*(dimension-1))&&(currPiece.yDest == pieceSize*(dimension-1))){
+                lineWithEmptyPiece = (i/dimension)+1;
+            }else{
+                for(int j = i; j < pieceCount; j++){
+                    SBPuzzlePiece * nextPiece = puzzle[j];
+                    if ((currPiece.yDest >  nextPiece.yDest)||((currPiece.yDest ==  nextPiece.yDest)&&(currPiece.xDest >  nextPiece.xDest))){
+                        pairs += 1;
+                    }
+                }
+            }
+        }
+        if(((pairs + lineWithEmptyPiece)%2) == 0){
+            isDefective = false;
+            printf("1 ");
+        }else{
+            isDefective = true;
+            printf("0 ");
+        }
+//    }while(isDefective == true);
     return puzzle;
 }
 

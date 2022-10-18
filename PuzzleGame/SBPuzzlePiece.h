@@ -18,7 +18,4 @@
 
 - (SBPuzzlePiece *)initWithPicture:(UIImage *)image withDestX:(double)destX withDestY:(double)destY;
 
-//- (void)flipMovability;
-//- (BOOL)isBlank;
-
 @end

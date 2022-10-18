@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIStepper *difficultySelector;
 @property (weak, nonatomic) IBOutlet UILabel *difficultyNotifier;
 @property (weak, nonatomic) IBOutlet UIView *gameBoard;
-//@property (weak, nonatomic) IBOutlet UILabel *winLabel;
 
 @property (strong, atomic) SBPuzzleGameEngine *engine;
 

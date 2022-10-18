@@ -20,6 +20,7 @@
     self.yDest = destY;
     self.xCurr = destX;
     self.yCurr = destY;
+   
     return self;
 }
 
