@@ -36,13 +36,13 @@
 
 + (NSMutableArray *)fisherYates:(NSMutableArray *)array withDimension:(int)dimension withPieceSize:(double)pieceSize
 {
-    int lineWithEmptyPiece = 0;
     bool isDefective = true;
+//        do {
+    NSMutableArray *puzzle = [[NSMutableArray alloc] init];
+    int lineWithEmptyPiece = 0;
     int pairs = 0;
     int max = (int)[array count];
     int pieceCount = (int)pow(dimension, 2);
-    NSMutableArray *puzzle = [[NSMutableArray alloc] init];
-//    do {
         for(int i = 0; i < max; i++) {
             int a = arc4random() % (max-i);
             double x = (i % dimension) * pieceSize;
@@ -68,12 +68,23 @@
         }
         if(((pairs + lineWithEmptyPiece)%2) == 0){
             isDefective = false;
-            printf("1 ");
+            printf("1");
+            
         }else{
             isDefective = true;
-            printf("0 ");
+            printf("0");
+            SBPuzzlePiece *piece0 = puzzle[0];
+            SBPuzzlePiece *piece1 = puzzle[1];
+            double temp = 0;
+            temp = piece0.xCurr;
+            piece0.xCurr = piece1.xCurr;
+            piece1.xCurr = temp;
+            temp =  piece1.yCurr;
+            piece1.yCurr = piece0.yCurr;
+            piece0.yCurr= temp;
+            [puzzle replaceObjectAtIndex:0 withObject:piece1];
+            [puzzle replaceObjectAtIndex:1 withObject:piece0];
         }
-//    }while(isDefective == true);
     return puzzle;
 }
 

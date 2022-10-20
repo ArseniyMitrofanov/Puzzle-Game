@@ -52,6 +52,7 @@
     self.engine = [[SBPuzzleGameEngine alloc] initEngine:sample withDimension:(int)[self.difficultySelector value] withSize:self.gameBoard.bounds.size.height];
     [self populateBoard];
     [self.movesCounter setText:@"0"];
+    
 }
 
 - (void)populateBoard
@@ -70,6 +71,7 @@
 }
 
 - (IBAction)move:(id)sender {
+    
     self.engine.moves++;
     if(sender == self.rightSwipeRecognizer) {
         [self.engine moveRight];
