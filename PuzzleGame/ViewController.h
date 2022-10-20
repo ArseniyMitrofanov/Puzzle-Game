@@ -14,9 +14,6 @@
 //@property (weak, nonatomic) IBOutlet UISegmentedControl *modeSelector;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UILabel *movesCounter;
-@property (weak, nonatomic) IBOutlet UILabel *difficultyLabel;
-@property (weak, nonatomic) IBOutlet UIStepper *difficultySelector;
-@property (weak, nonatomic) IBOutlet UILabel *difficultyNotifier;
 @property (weak, nonatomic) IBOutlet UIView *gameBoard;
 
 @property (strong, atomic) SBPuzzleGameEngine *engine;
@@ -30,7 +27,6 @@
 
 - (IBAction)startGame:(id)sender;
 - (IBAction)setDifficultySetterVisibility:(id)sender;
-- (IBAction)setDisplayedDifficulty:(id)sender;
 - (IBAction)move:(id)sender;
 
 @end

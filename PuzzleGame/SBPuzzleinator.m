@@ -36,8 +36,6 @@
 
 + (NSMutableArray *)fisherYates:(NSMutableArray *)array withDimension:(int)dimension withPieceSize:(double)pieceSize
 {
-    bool isDefective = true;
-//        do {
     NSMutableArray *puzzle = [[NSMutableArray alloc] init];
     int lineWithEmptyPiece = 0;
     int pairs = 0;
@@ -67,12 +65,7 @@
             }
         }
         if(((pairs + lineWithEmptyPiece)%2) == 0){
-            isDefective = false;
-            printf("1");
-            
         }else{
-            isDefective = true;
-            printf("0");
             SBPuzzlePiece *piece0 = puzzle[0];
             SBPuzzlePiece *piece1 = puzzle[1];
             double temp = 0;
@@ -96,5 +89,4 @@
     CGImageRelease(ref);
     return finalImage;
 }
-
 @end

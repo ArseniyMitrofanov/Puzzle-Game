@@ -45,11 +45,11 @@
 }
 
 - (IBAction)startGame:(id)sender {
-    if([[self.gameBoard backgroundColor] isEqual:[UIColor greenColor]]) {
+    if([[self.gameBoard backgroundColor] isEqual:[UIColor systemBlueColor]]) {
         [self.gameBoard setBackgroundColor:[UIColor lightGrayColor]];
     }
     UIImage *sample = [UIImage imageNamed:@"notepad_icon_edited.jpg"];
-    self.engine = [[SBPuzzleGameEngine alloc] initEngine:sample withDimension:(int)[self.difficultySelector value] withSize:self.gameBoard.bounds.size.height];
+    self.engine = [[SBPuzzleGameEngine alloc] initEngine:sample withDimension: 4 withSize:self.gameBoard.bounds.size.height];
     [self populateBoard];
     [self.movesCounter setText:@"0"];
     
@@ -64,10 +64,6 @@
         piece.frame = CGRectMake(piece.xCurr, piece.yCurr, pieceSize, pieceSize);
         [self.gameBoard addSubview:piece];
     }
-}
-
-- (IBAction)setDisplayedDifficulty:(id)sender {
-    [self.difficultyNotifier setText:[NSString stringWithFormat:@"%d",(int)[self.difficultySelector value]]];
 }
 
 - (IBAction)move:(id)sender {
@@ -86,7 +82,7 @@
     if([self.engine isVictorious]) {
        
         [self.gameBoard.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
-        [self.gameBoard setBackgroundColor:[UIColor greenColor]];
+        [self.gameBoard setBackgroundColor:[UIColor systemBlueColor]];
     }
 }
 
