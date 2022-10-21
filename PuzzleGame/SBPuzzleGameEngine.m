@@ -41,6 +41,7 @@
 
 - (void)moveUp
 {
+    
     _transform = [[SBTransformBoard alloc] initWithEngine:self withXDir:0 withYDir:1];
     if(_emptyIndex / _dimension == (_dimension-1)) return;
     self.puzzle = [_transform transform];
@@ -49,6 +50,7 @@
 
 - (void)moveDown
 {
+    
     _transform = [[SBTransformBoard alloc] initWithEngine:self withXDir:0 withYDir:-1];
     if(_emptyIndex / _dimension == 0) return;
     self.puzzle = [_transform transform];
@@ -58,13 +60,14 @@
 - (void)moveLeft
 {
     _transform = [[SBTransformBoard alloc] initWithEngine:self withXDir:-1 withYDir:0];
-    if(_emptyIndex % _dimension == (-1)) return;
+    if(_emptyIndex % _dimension == (_dimension-1)) return;
     self.puzzle = [_transform transform];
     self.emptyIndex = [self findEmptyPiece];
 }
 
 - (void)moveRight
 {
+    
     _transform = [[SBTransformBoard alloc] initWithEngine:self withXDir:1 withYDir:0];
     if(_emptyIndex % _dimension == 0) return;
     self.puzzle = [_transform transform];
@@ -73,6 +76,7 @@
 
 - (void)undoLastMove
 {
+    
     [_transform doInverse];
 }
 

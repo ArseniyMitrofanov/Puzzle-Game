@@ -11,7 +11,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    _startButton.layer.cornerRadius = 20;
+    _appName.layer.cornerRadius = 45;
 }
 
 
@@ -45,9 +46,8 @@
 }
 
 - (IBAction)startGame:(id)sender {
-    if([[self.gameBoard backgroundColor] isEqual:[UIColor systemBlueColor]]) {
+    [self.gameBoard.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
         [self.gameBoard setBackgroundColor:[UIColor lightGrayColor]];
-    }
     UIImage *sample = [UIImage imageNamed:@"notepad_icon_edited.jpg"];
     self.engine = [[SBPuzzleGameEngine alloc] initEngine:sample withDimension: 4 withSize:self.gameBoard.bounds.size.height];
     [self populateBoard];
@@ -80,9 +80,12 @@
     }
     [self.movesCounter setText:[NSString stringWithFormat:@"%d",self.engine.moves]];
     if([self.engine isVictorious]) {
-       
         [self.gameBoard.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
         [self.gameBoard setBackgroundColor:[UIColor systemBlueColor]];
+        UIImageView *winImage =[[UIImageView alloc] initWithFrame:CGRectMake(10,10,286,286)];
+        winImage.image=[UIImage imageNamed:@"notepad_icon_rounded.png"];
+        [self.gameBoard addSubview:winImage];
+    
     }
 }
 

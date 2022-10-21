@@ -20,7 +20,6 @@
 		7EE83D271EFF467F00A7F126 /* SBPuzzlePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D251EFF467F00A7F126 /* SBPuzzlePiece.m */; };
 		7EE83D2A1EFF47C000A7F126 /* SBPuzzleGameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D291EFF47C000A7F126 /* SBPuzzleGameEngine.m */; };
 		7EE83D301EFF567A00A7F126 /* notepad_icon_edited.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EE83D2F1EFF567A00A7F126 /* notepad_icon_edited.jpg */; };
-		7EE909F8217CFC8E0092B88D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE909F7217CFC8E0092B88D /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +58,6 @@
 		7EE83D281EFF47C000A7F126 /* SBPuzzleGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPuzzleGameEngine.h; sourceTree = "<group>"; };
 		7EE83D291EFF47C000A7F126 /* SBPuzzleGameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPuzzleGameEngine.m; sourceTree = "<group>"; };
 		7EE83D2F1EFF567A00A7F126 /* notepad_icon_edited.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = notepad_icon_edited.jpg; sourceTree = "<group>"; };
-		7EE909F7217CFC8E0092B88D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +90,6 @@
 		7EE83CF11EFF341000A7F126 = {
 			isa = PBXGroup;
 			children = (
-				7EE909F7217CFC8E0092B88D /* Default-568h@2x.png */,
 				7EE83CFC1EFF341000A7F126 /* PuzzleGame */,
 				7EE83D161EFF341000A7F126 /* PuzzleGameTests */,
 				7EE83CFB1EFF341000A7F126 /* Products */,
@@ -242,7 +239,6 @@
 				7E32FA471F009D1200E7F6CE /* notepad_icon_rounded.png in Resources */,
 				7EE83D301EFF567A00A7F126 /* notepad_icon_edited.jpg in Resources */,
 				7EE83D081EFF341000A7F126 /* Main.storyboard in Resources */,
-				7EE909F8217CFC8E0092B88D /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

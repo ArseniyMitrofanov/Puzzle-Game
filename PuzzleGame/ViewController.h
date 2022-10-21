@@ -12,6 +12,7 @@
 @interface ViewController : UIViewController
 
 //@property (weak, nonatomic) IBOutlet UISegmentedControl *modeSelector;
+@property (weak, nonatomic) IBOutlet UIView *appName;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UILabel *movesCounter;
 @property (weak, nonatomic) IBOutlet UIView *gameBoard;
