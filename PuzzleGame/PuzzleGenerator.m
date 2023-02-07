@@ -1,21 +1,15 @@
-//
-//  SBPuzzleinator.m
-//  CatPuzzle
-//
-//  Created by Samuel Bowman on 6/11/17.
-//  Copyright © 2017 Samuel Bowman. All rights reserved.
-//
 
-#import "SBPuzzleinator.h"
-#import "SBPuzzlePiece.h"
 
-@interface SBPuzzleinator ()
+#import "PuzzleGenerator.h"
+#import "PuzzlePiece.h"
+
+@interface PuzzleGenerator ()
 
 + (UIImage *)createPiece:(UIImage *)image fromX:(double)x fromY:(double)y withSize:(double)size;
 
 @end
 
-@implementation SBPuzzleinator
+@implementation PuzzleGenerator
 + (NSMutableArray *)generatePuzzle:(UIImage *)image withDimension:(int)dimension
                       withFullSize:(double)fullSize
 {
@@ -25,16 +19,16 @@
     for(int i = 0; i < pieceCount; i++) {
         double x = i % dimension;
         double y = i / dimension;
-        UIImage *subset = [SBPuzzleinator createPiece:image fromX:x*pieceSize fromY:y*pieceSize withSize:pieceSize];
-        SBPuzzlePiece *piece = [[SBPuzzlePiece alloc] initWithPicture:subset withDestX:x*pieceSize withDestY:y*pieceSize];
+        UIImage *subset = [PuzzleGenerator createPiece:image fromX:x*pieceSize fromY:y*pieceSize withSize:pieceSize];
+        PuzzlePiece *piece = [[PuzzlePiece alloc] initWithPicture:subset withDestX:x*pieceSize withDestY:y*pieceSize];
         [puzzle addObject:piece];
     }
-    SBPuzzlePiece *emptyPiece = [[SBPuzzlePiece alloc] initWithPicture:[[UIImage alloc] init] withDestX:pieceSize*(dimension-1) withDestY:pieceSize*(dimension-1)];
+    PuzzlePiece *emptyPiece = [[PuzzlePiece alloc] initWithPicture:[[UIImage alloc] init] withDestX:pieceSize*(dimension-1) withDestY:pieceSize*(dimension-1)];
     [puzzle replaceObjectAtIndex:(pieceCount-1) withObject:emptyPiece];
     return puzzle;
 }
 
-+ (NSMutableArray *)fisherYates:(NSMutableArray *)array withDimension:(int)dimension withPieceSize:(double)pieceSize
++ (NSMutableArray *)mix:(NSMutableArray *)array withDimension:(int)dimension withPieceSize:(double)pieceSize
 {
     NSMutableArray *puzzle = [[NSMutableArray alloc] init];
     int lineWithEmptyPiece = 0;
@@ -45,19 +39,19 @@
             int a = arc4random() % (max-i);
             double x = (i % dimension) * pieceSize;
             double y = (i / dimension) * pieceSize;
-            SBPuzzlePiece *piece = [array objectAtIndex:a];
+            PuzzlePiece *piece = [array objectAtIndex:a];
             [piece setXCurr:x];
             [piece setYCurr:y];
             [puzzle addObject:piece];
             [array removeObject:piece];
         }
         for(int i = 0; i < pieceCount; i++) {
-            SBPuzzlePiece *currPiece = puzzle[i];
+            PuzzlePiece *currPiece = puzzle[i];
             if ((currPiece.xDest == pieceSize*(dimension-1))&&(currPiece.yDest == pieceSize*(dimension-1))){
                 lineWithEmptyPiece = (i/dimension)+1;
             }else{
                 for(int j = i; j < pieceCount; j++){
-                    SBPuzzlePiece * nextPiece = puzzle[j];
+                    PuzzlePiece * nextPiece = puzzle[j];
                     if ((currPiece.yDest >  nextPiece.yDest)||((currPiece.yDest ==  nextPiece.yDest)&&(currPiece.xDest >  nextPiece.xDest))){
                         pairs += 1;
                     }
@@ -66,8 +60,8 @@
         }
         if(((pairs + lineWithEmptyPiece)%2) == 0){
         }else{
-            SBPuzzlePiece *piece0 = puzzle[0];
-            SBPuzzlePiece *piece1 = puzzle[1];
+            PuzzlePiece *piece0 = puzzle[0];
+            PuzzlePiece *piece1 = puzzle[1];
             double temp = 0;
             temp = piece0.xCurr;
             piece0.xCurr = piece1.xCurr;

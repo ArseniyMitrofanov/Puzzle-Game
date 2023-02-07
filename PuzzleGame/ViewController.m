@@ -1,7 +1,8 @@
 #import "ViewController.h"
-#import "SBPuzzleGameEngine.h"
-#import "SBPuzzlePiece.h"
-#import "SBPuzzleinator.h"
+#import "PuzzleGameEngine.h"
+#import "PuzzlePiece.h"
+#import "PuzzleGenerator.h"
+#import "TransformBoard.h"
 
 @interface ViewController ()
 
@@ -38,18 +39,12 @@
     [super viewWillDisappear:animated];
 }
 
-- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    self.engine.moves--;
-    [self.engine undoLastMove];
-    [self.movesCounter setText:[NSString stringWithFormat:@"%d",self.engine.moves]];
-}
 
 - (IBAction)startGame:(id)sender {
     [self.gameBoard.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
         [self.gameBoard setBackgroundColor:[UIColor lightGrayColor]];
     UIImage *sample = [UIImage imageNamed:@"notepad_icon_edited.jpg"];
-    self.engine = [[SBPuzzleGameEngine alloc] initEngine:sample withDimension: 4 withSize:self.gameBoard.bounds.size.height];
+    self.engine = [[PuzzleGameEngine alloc] initEngine:sample withDimension: 4 withSize:self.gameBoard.bounds.size.height];
     [self populateBoard];
     [self.movesCounter setText:@"0"];
     
@@ -60,15 +55,13 @@
     if(self.gameBoard.subviews != nil)
         [self.gameBoard.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
     double pieceSize = self.gameBoard.bounds.size.height / self.engine.dimension;
-    for(SBPuzzlePiece *piece in self.engine.puzzle) {
+    for(PuzzlePiece *piece in self.engine.puzzle) {
         piece.frame = CGRectMake(piece.xCurr, piece.yCurr, pieceSize, pieceSize);
         [self.gameBoard addSubview:piece];
     }
 }
 
 - (IBAction)move:(id)sender {
-    
-    self.engine.moves++;
     if(sender == self.rightSwipeRecognizer) {
         [self.engine moveRight];
     } else if(sender == self.leftSwipeRecognizer) {
@@ -82,7 +75,7 @@
     if([self.engine isVictorious]) {
         [self.gameBoard.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
         [self.gameBoard setBackgroundColor:[UIColor systemBlueColor]];
-        UIImageView *winImage =[[UIImageView alloc] initWithFrame:CGRectMake(10,10,286,286)];
+        UIImageView *winImage =[[UIImageView alloc] initWithFrame:CGRectMake(20,20,332,332)];
         winImage.image=[UIImage imageNamed:@"notepad_icon_rounded.png"];
         [self.gameBoard addSubview:winImage];
     

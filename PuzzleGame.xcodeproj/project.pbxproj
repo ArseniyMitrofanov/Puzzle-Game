@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E32FA471F009D1200E7F6CE /* notepad_icon_rounded.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E32FA461F009D1200E7F6CE /* notepad_icon_rounded.png */; };
-		7EA2F79D1F0704B800E5F82A /* SBTransformBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA2F79C1F0704B800E5F82A /* SBTransformBoard.m */; };
+		7EA2F79D1F0704B800E5F82A /* TransformBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA2F79C1F0704B800E5F82A /* TransformBoard.m */; };
 		7EE83CFF1EFF341000A7F126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83CFE1EFF341000A7F126 /* main.m */; };
 		7EE83D021EFF341000A7F126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D011EFF341000A7F126 /* AppDelegate.m */; };
 		7EE83D051EFF341000A7F126 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D041EFF341000A7F126 /* ViewController.m */; };
@@ -16,9 +16,9 @@
 		7EE83D0A1EFF341000A7F126 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EE83D091EFF341000A7F126 /* Assets.xcassets */; };
 		7EE83D0D1EFF341000A7F126 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE83D0B1EFF341000A7F126 /* LaunchScreen.storyboard */; };
 		7EE83D181EFF341000A7F126 /* PuzzlePetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D171EFF341000A7F126 /* PuzzlePetsTests.m */; };
-		7EE83D261EFF467F00A7F126 /* SBPuzzleinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D231EFF467F00A7F126 /* SBPuzzleinator.m */; };
-		7EE83D271EFF467F00A7F126 /* SBPuzzlePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D251EFF467F00A7F126 /* SBPuzzlePiece.m */; };
-		7EE83D2A1EFF47C000A7F126 /* SBPuzzleGameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D291EFF47C000A7F126 /* SBPuzzleGameEngine.m */; };
+		7EE83D261EFF467F00A7F126 /* PuzzleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D231EFF467F00A7F126 /* PuzzleGenerator.m */; };
+		7EE83D271EFF467F00A7F126 /* PuzzlePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D251EFF467F00A7F126 /* PuzzlePiece.m */; };
+		7EE83D2A1EFF47C000A7F126 /* PuzzleGameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE83D291EFF47C000A7F126 /* PuzzleGameEngine.m */; };
 		7EE83D301EFF567A00A7F126 /* notepad_icon_edited.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EE83D2F1EFF567A00A7F126 /* notepad_icon_edited.jpg */; };
 /* End PBXBuildFile section */
 
@@ -36,8 +36,8 @@
 		7E211ED01F03395C005CFDFB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7E211ED21F033962005CFDFB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		7E32FA461F009D1200E7F6CE /* notepad_icon_rounded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notepad_icon_rounded.png; sourceTree = "<group>"; };
-		7EA2F79B1F0704B800E5F82A /* SBTransformBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTransformBoard.h; sourceTree = "<group>"; };
-		7EA2F79C1F0704B800E5F82A /* SBTransformBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTransformBoard.m; sourceTree = "<group>"; };
+		7EA2F79B1F0704B800E5F82A /* TransformBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformBoard.h; sourceTree = "<group>"; };
+		7EA2F79C1F0704B800E5F82A /* TransformBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformBoard.m; sourceTree = "<group>"; };
 		7EE83CFA1EFF341000A7F126 /* PuzzleGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PuzzleGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE83CFE1EFF341000A7F126 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EE83D001EFF341000A7F126 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,12 +51,12 @@
 		7EE83D131EFF341000A7F126 /* PuzzleGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PuzzleGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE83D171EFF341000A7F126 /* PuzzlePetsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PuzzlePetsTests.m; sourceTree = "<group>"; };
 		7EE83D191EFF341000A7F126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7EE83D221EFF467F00A7F126 /* SBPuzzleinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPuzzleinator.h; sourceTree = "<group>"; };
-		7EE83D231EFF467F00A7F126 /* SBPuzzleinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPuzzleinator.m; sourceTree = "<group>"; };
-		7EE83D241EFF467F00A7F126 /* SBPuzzlePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPuzzlePiece.h; sourceTree = "<group>"; };
-		7EE83D251EFF467F00A7F126 /* SBPuzzlePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPuzzlePiece.m; sourceTree = "<group>"; };
-		7EE83D281EFF47C000A7F126 /* SBPuzzleGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPuzzleGameEngine.h; sourceTree = "<group>"; };
-		7EE83D291EFF47C000A7F126 /* SBPuzzleGameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPuzzleGameEngine.m; sourceTree = "<group>"; };
+		7EE83D221EFF467F00A7F126 /* PuzzleGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzleGenerator.h; sourceTree = "<group>"; };
+		7EE83D231EFF467F00A7F126 /* PuzzleGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzleGenerator.m; sourceTree = "<group>"; };
+		7EE83D241EFF467F00A7F126 /* PuzzlePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzlePiece.h; sourceTree = "<group>"; };
+		7EE83D251EFF467F00A7F126 /* PuzzlePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzlePiece.m; sourceTree = "<group>"; };
+		7EE83D281EFF47C000A7F126 /* PuzzleGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzleGameEngine.h; sourceTree = "<group>"; };
+		7EE83D291EFF47C000A7F126 /* PuzzleGameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzleGameEngine.m; sourceTree = "<group>"; };
 		7EE83D2F1EFF567A00A7F126 /* notepad_icon_edited.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = notepad_icon_edited.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,14 +113,14 @@
 				7EE83D011EFF341000A7F126 /* AppDelegate.m */,
 				7EE83D031EFF341000A7F126 /* ViewController.h */,
 				7EE83D041EFF341000A7F126 /* ViewController.m */,
-				7EE83D281EFF47C000A7F126 /* SBPuzzleGameEngine.h */,
-				7EE83D291EFF47C000A7F126 /* SBPuzzleGameEngine.m */,
-				7EA2F79B1F0704B800E5F82A /* SBTransformBoard.h */,
-				7EA2F79C1F0704B800E5F82A /* SBTransformBoard.m */,
-				7EE83D221EFF467F00A7F126 /* SBPuzzleinator.h */,
-				7EE83D231EFF467F00A7F126 /* SBPuzzleinator.m */,
-				7EE83D241EFF467F00A7F126 /* SBPuzzlePiece.h */,
-				7EE83D251EFF467F00A7F126 /* SBPuzzlePiece.m */,
+				7EE83D281EFF47C000A7F126 /* PuzzleGameEngine.h */,
+				7EE83D291EFF47C000A7F126 /* PuzzleGameEngine.m */,
+				7EA2F79B1F0704B800E5F82A /* TransformBoard.h */,
+				7EA2F79C1F0704B800E5F82A /* TransformBoard.m */,
+				7EE83D221EFF467F00A7F126 /* PuzzleGenerator.h */,
+				7EE83D231EFF467F00A7F126 /* PuzzleGenerator.m */,
+				7EE83D241EFF467F00A7F126 /* PuzzlePiece.h */,
+				7EE83D251EFF467F00A7F126 /* PuzzlePiece.m */,
 				7EE83D061EFF341000A7F126 /* Main.storyboard */,
 				7E32FA461F009D1200E7F6CE /* notepad_icon_rounded.png */,
 				7EE83D2F1EFF567A00A7F126 /* notepad_icon_edited.jpg */,
@@ -256,13 +256,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EE83D2A1EFF47C000A7F126 /* SBPuzzleGameEngine.m in Sources */,
+				7EE83D2A1EFF47C000A7F126 /* PuzzleGameEngine.m in Sources */,
 				7EE83D051EFF341000A7F126 /* ViewController.m in Sources */,
 				7EE83D021EFF341000A7F126 /* AppDelegate.m in Sources */,
 				7EE83CFF1EFF341000A7F126 /* main.m in Sources */,
-				7EE83D271EFF467F00A7F126 /* SBPuzzlePiece.m in Sources */,
-				7EE83D261EFF467F00A7F126 /* SBPuzzleinator.m in Sources */,
-				7EA2F79D1F0704B800E5F82A /* SBTransformBoard.m in Sources */,
+				7EE83D271EFF467F00A7F126 /* PuzzlePiece.m in Sources */,
+				7EE83D261EFF467F00A7F126 /* PuzzleGenerator.m in Sources */,
+				7EA2F79D1F0704B800E5F82A /* TransformBoard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,20 +1,14 @@
-//
-//  SBPuzzleGameEngine.m
-//  PuzzleGame
-//
-//  Created by Samuel Bowman on 6/24/17.
-//  Copyright © 2017 Samuel Bowman. All rights reserved.
-//
 
-#import "SBPuzzleGameEngine.h"
-#import "SBTransformBoard.h"
-#import "SBPuzzleinator.h"
-#import "SBPuzzlePiece.h"
 
-@interface SBPuzzleGameEngine () {
+#import "PuzzleGameEngine.h"
+#import "TransformBoard.h"
+#import "PuzzleGenerator.h"
+#import "PuzzlePiece.h"
+
+@interface PuzzleGameEngine () {
     double _boardSize;
-    SBPuzzlePiece *_emptyPiece;
-    SBTransformBoard *_transform;
+    PuzzlePiece *_emptyPiece;
+    TransformBoard *_transform;
 }
 
 - (UIImage *)scaleImage:(UIImage *)image toSize:(double)size;
@@ -22,18 +16,18 @@
 
 @end
 
-@implementation SBPuzzleGameEngine
+@implementation PuzzleGameEngine
 
-- (SBPuzzleGameEngine *)initEngine:(UIImage *)image withDimension:(int)dimension withSize:(double)size
+- (PuzzleGameEngine *)initEngine:(UIImage *)image withDimension:(int)dimension withSize:(double)size
 {
     _boardSize = size;
     self.dimension = dimension;
     int pieceCount = (int)pow(dimension, 2);
     self.moves = 0;
     UIImage *newImage = [self scaleImage:image toSize:size];
-    NSMutableArray *puzzle = [SBPuzzleinator generatePuzzle:newImage withDimension:dimension withFullSize:size];
+    NSMutableArray *puzzle = [PuzzleGenerator generatePuzzle:newImage withDimension:dimension withFullSize:size];
     _emptyPiece = [puzzle objectAtIndex:(pieceCount-1)];
-    self.puzzle = [SBPuzzleinator fisherYates:puzzle withDimension:dimension withPieceSize:(size/dimension)];
+    self.puzzle = [PuzzleGenerator mix:puzzle withDimension:dimension withPieceSize:(size/dimension)];
     self.emptyIndex = [self findEmptyPiece];
     self.pieceSize = _boardSize / dimension;
     return self;
@@ -42,43 +36,42 @@
 - (void)moveUp
 {
     
-    _transform = [[SBTransformBoard alloc] initWithEngine:self withXDir:0 withYDir:1];
+    _transform = [[TransformBoard alloc] initWithEngine:self withXDir:0 withYDir:1];
     if(_emptyIndex / _dimension == (_dimension-1)) return;
     self.puzzle = [_transform transform];
     self.emptyIndex = [self findEmptyPiece];
+    _moves ++;
 }
 
 - (void)moveDown
 {
     
-    _transform = [[SBTransformBoard alloc] initWithEngine:self withXDir:0 withYDir:-1];
+    _transform = [[TransformBoard alloc] initWithEngine:self withXDir:0 withYDir:-1];
     if(_emptyIndex / _dimension == 0) return;
     self.puzzle = [_transform transform];
     self.emptyIndex = [self findEmptyPiece];
+    _moves ++;
 }
 
 - (void)moveLeft
 {
-    _transform = [[SBTransformBoard alloc] initWithEngine:self withXDir:-1 withYDir:0];
+    _transform = [[TransformBoard alloc] initWithEngine:self withXDir:-1 withYDir:0];
     if(_emptyIndex % _dimension == (_dimension-1)) return;
     self.puzzle = [_transform transform];
     self.emptyIndex = [self findEmptyPiece];
+    _moves ++;
 }
 
 - (void)moveRight
 {
     
-    _transform = [[SBTransformBoard alloc] initWithEngine:self withXDir:1 withYDir:0];
+    _transform = [[TransformBoard alloc] initWithEngine:self withXDir:1 withYDir:0];
     if(_emptyIndex % _dimension == 0) return;
     self.puzzle = [_transform transform];
     self.emptyIndex = [self findEmptyPiece];
+    _moves ++;
 }
 
-- (void)undoLastMove
-{
-    
-    [_transform doInverse];
-}
 
 - (UIImage *)scaleImage:(UIImage *)image toSize:(double)size
 {
@@ -96,7 +89,7 @@
 - (int)findEmptyPiece
 {
     int i = 0;
-    for(SBPuzzlePiece *piece in _puzzle) {
+    for(PuzzlePiece *piece in _puzzle) {
         if([piece isEqual:_emptyPiece]) return i;
         i++;
     }
@@ -105,7 +98,7 @@
 
 - (BOOL)isVictorious
 {
-    for(SBPuzzlePiece *piece in _puzzle) {
+    for(PuzzlePiece *piece in _puzzle) {
         if([piece xCurr] != [piece xDest] || [piece yCurr] != [piece yDest])
             return NO;
     }

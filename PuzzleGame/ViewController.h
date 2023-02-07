@@ -1,13 +1,7 @@
-//
-//  ViewController.h
-//  PuzzleGame
-//
-//  Created by Samuel Bowman on 6/24/17.
-//  Copyright © 2017 Samuel Bowman. All rights reserved.
-//
+
 
 #import <UIKit/UIKit.h>
-@class SBPuzzleGameEngine;
+@class PuzzleGameEngine;
 
 @interface ViewController : UIViewController
 
@@ -17,7 +11,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *movesCounter;
 @property (weak, nonatomic) IBOutlet UIView *gameBoard;
 
-@property (strong, atomic) SBPuzzleGameEngine *engine;
+@property (strong, atomic) PuzzleGameEngine *engine;
 
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *difficultySetterVisibilityToggler;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *rightSwipeRecognizer;
